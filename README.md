@@ -2,9 +2,11 @@
 #### Module 2 - Front-End Web UI Frameworks and Tools
 ###### by **The Hong Kong University of Science and Technology**
 ###Getting Started with Bootstrap
-----------
-* Insert the following code in the head of *index.html* file before the title.
 
+By the end of the following steps, we are going to have the following Home Page:
+
+![Home Page](img/Home.png?raw=true "Home Page")
+* Insert the following code in the head of *index.html* file before the title.
 ```
  <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +27,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 ```
-
 * Note the subtle change in the fonts of the content of the web page. This is the Bootstrap typography effect coming into play. The default Bootstrap typography sets the font to Helvetica Neue and selects the appropriate font size based on the choice of the heading style and paragraph style for the content.
 
 * At the bottom of the page, just before the end of the body tag, add the following code to include the JQuery library and Bootstrap's Javascript plugins. Bootstrap by default uses the JQuery Javascript library for its Javascript plugins. Hence the need to include JQuery library in the web page.
@@ -166,18 +167,142 @@ address{
     color:#0f0f0f;
 }
 ```
+####**Create a basic navigation bar**
+* We will now add a simple navigation bar to the web page so that it provides links to the other pages on the website. Start by adding the following code to the body just above the header jumbotron.
+```
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>       
+```
+In the above code, we can see the use of the nav element to specify the navigation information for the website. This nav element is styled by the navbar that declares it as a navigation bar, and the *navbar-inverse* class to specify that the page should use the dark navigation bar. In addition the inner *ul* is used to specify the items to be put in the navigation bar. This *ul* is styled with *nav* and *navbar-nav* classes to specify that the items should be displayed inline inside the navigation bar. We also use the container class inside the navigation bar. This navigation bar does not use responsive design at the moment.
 
+####**Creating a responsive navigation bar**
+* We would like the navigation bar elements to collapse for shorter screens, to be replaced by a toggle button so that the items can be toggled on or off when required on smaller screens. This can be achieved by adding the following code to the navigation bar, just below the container div.
+```
+ <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Ristorante Con Fusion</a>
+                </div>
+```
+You will now notice the addition of a link to the left of the Home link with the name of the restaurant. This is the brand name for the website. You can replace this with the logo for the website. This is created by the `<a class="navbar-brand">` tag. The other part is the creation of a button with three horizontal lines. For larger screens, this button is hidden. For smaller screens, this button becomes visible. This button will act as the toggle for the navbar items on small screens. At the moment you still see the items being displayed in the navigation bar even for smaller screens. We will fix this in the next step.
+
+* To hide the items from the navigation bar for smaller screens, we need to enclose the ul within another navigation bar as follows:
+```
+<div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav"> ... </ul>
+</div>
+```
+
+By doing this, we are specifying that this *navbar* with the id *navbar* will be collapsed on smaller screens, but can be toggled on or off when the toggle button is clicked. Note the use of *data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"* within the button. This specifies that the menu items are collapsed on smaller screens when the toggle button is visible. They can be displayed or hidden by clicking the toggle button.
+
+* Note that the navbar scrolls when the web page in the browser is scrolled. If we wish to keep the navigation bar always visible at the top of the page when the page is scrolled, then we should change the navbar-static-top to navbar-fixed-top. Let us do this now. Note that after the change, the navigation bar remains visible at the top of the page even when the page is scrolled.
+
+####**Adding a Dropdown Menu to the Navigation Bar**
+* The next modification adds a Dropdown menu to the navigation bar. Let us target the "Menu" item in the navigation bar and turn it into a dropdown menu item. When this item is clicked, a dropdown menu will be displayed. To do this, modify the list item for the "Menu" item in the navigation bar by replacing it with the following code:
+```
+ <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+     role="button" aria-haspopup="true" aria-expanded="false">
+     Menu <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+         <li><a href="#">Appetizers</a></li>
+         <li><a href="#">Main Courses</a></li>
+         <li><a href="#">Desserts</a></li>
+         <li><a href="#">Drinks</a></li>
+         <li role="separator" class="divider"></li>
+         <li class="dropdown-header">Specials</li>
+         <li><a href="#">Lunch Buffet</a></li>
+         <li><a href="#">Weekend Brunch</a></li>
+    </ul>
+</li>
+```
+* In this modification, the "Menu" list item is now replaced with a dropdown-toggle, which when pressed will show the selection menu below the navigation bar. The structure of this code has similarities with the toggle button that we used above for showing and hiding the navbar items for small screens.
+
+####**Modifications to the CSS styles**
+* We would like to have the navigation bar displayed in darker blue color, instead of black. In addition, we would like the navigation bar to indicate the current page by highlighting the item with a darker background in the navbar. In addition, when we use the fixed navigation bar, we should give the body of the page an upper margin of 50px, so that the top 50px of the page does not get hidden under the navigation bar. We accomplish these by adding these CSS customisations to the *mystyles.css* file.
+```
+body{
+    padding:50px 0px 0px 0px;
+    z-index:0;
+}
+
+.navbar-inverse {
+     background: #303F9F;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+ .navbar-inverse .navbar-nav > .open > a:hover,
+ .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+    background-color: #303F9F;
+    color:#eeeeee;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
+    color:#000000;
+}
+``` 
+####**Using Icon Fonts and Other CSS classes**
+* The last part of the exercise is to make use of the glyphicons that are provided as part of Bootstrap. In addition we will also use two additional popular font icons.
+*  One of the most popular iconic font toolkit is Font Awesome. Go to its website https://fortawesome.github.io/Font-Awesome/ and download the zip file and move it to the conFusion folder and unzip it. You will find the *font-awesome-4.4.0* folder being created. Go into this folder and move the contents of the css folder to conFusion/css and the contents of the fonts folder to *conFusion/fonts* folder. Then you can delete the *font-awesome-4.4.0* folder.
+* Download the *bootstrap-social.css *file to *conFusion/css* folder. This is a modified version of the bootstrap-social available on the http://lipis.github.io/bootstrap-social/. We added in support for G+ and YouTube 
+*  We now need to include the css files for font awesome and bootstrap-social in the index.html file. Add the following code to the head of the file after the links for importing Bootstrap CSS classes:buttons.
+```
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap-social.css" rel="stylesheet">
+```
+* Let us now use some font icons in our web page and decorate it. First use the glyphicons that is part of Bootstrap to add a home icon to the Home link on the navigation bar. Update the home list item as follows:
+```
+<li class="active"><a href="#"><span class="glyphicon glyphicon-home"
+aria-hidden="true"></span> Home</a></li>
+```
+* Next, go down to the address in the footer of the page and replace the "Tel.", "Fax" and "Email" with the corresponding font awesome based icons as follows:
+```
+<i class="fa fa-phone"></i>: +852 1234 5678<br>
+<i class="fa fa-fax"></i>: +852 8765 4321<br>
+<i class="fa fa-envelope"></i>: 
+    <a href="mailto:confusion@food.net">confusion@food.net</a>
+```
+* Finally, let us use the bootstrap-social CSS classes to create the social buttons in the footer by replacing the social sites' links with the following code:
+```
+<div class="nav navbar-nav" style="padding: 40px 10px;">
+    <a class="btn btn-social-icon btn-google-plus" href=
+    "http://google.com/+"><i class="fa fa-google-plus"></i></a>
+    <a class="btn btn-social-icon btn-facebook" href=
+    "http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+    <a class="btn btn-social-icon btn-linkedin" href=
+    "http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+    <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+    <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+    <a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a>
+</div>
+```
 ####**ccccc**
 ####**ccccc**
-####**ccccc**
-####**ccccc**
-
-
-
-
-![Home Page](img/Home.png?raw=true "Home Page")
-
-
 
 
 #### Updated: 2016-11-01
