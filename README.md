@@ -359,4 +359,115 @@ In this task you will be adding appropriate formatting to the web page contents 
 
 ![About Us Page](img/AboutUs.png?raw=true "About Us Page")
 
-#### Updated: 2016-11-01
+###**Contact Us Page**
+
+Now we are going to add the glyphicon *glyphicon-list-alt* to the *Menu* link, and the font awesome icon *fa-envelope-o* to the *Contact* link. Do this in all the three html pages in the website. 
+
+#### Adding a Button Bar
+
+* We are now going to add content to contactus.html file to learn more about buttons and button bars. Add the following code to create a button bar containing three buttons:
+
+```html
+<div class="btn-group" role="group" aria-label="...">
+                    <a type="button" class="btn btn-primary" href="tel:+85212345678"><i class="fa fa-phone"></i> Call</a>
+                    <a type="button" class="btn btn-info"><i class="fa fa-skype"></i> Skype</a>
+                    <a type="button" class="btn btn-success" href="mailto:confusion@food.net"><i class="fa fa-envelope-o"></i> Email</a>
+</div>
+```
+
+Note how we define the button bar using the *btn-group* class, and then add the three buttons using the `<a>` tag. In this case, the three buttons are hyperlinks that cause an action and have an href associated with them. So we decided to use the `<a>` tag instead of the `<button>` tag. Note how the `<a>` tags have been styled using the *btn* class.
+
+
+#### Adding a Basic Form
+
+Next, we will add a simple form to the page. Add the following code to page to create a simple horizontal form with two fields:
+
+```html
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label for="firstname" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="lastname" class="col-sm-2 control-label">Last Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name">
+        </div>
+    </div>
+</form>
+```
+
+This creates a form with two elements in the form. Note that the class *form-group* acts as a row in the Bootstrap grid system. Hence we can style the contents using the column classes as appropriate.
+
+#### Adding a Input Group with addons
+
+We now see the use of an input-group together with input-group-addons. Let us add fields to seek user's telephone number and email:
+```html
+<div class="form-group">
+    <label for="telnum" class="col-xs-12 col-sm-2 control-label">Contact Tel.</label>
+    <div class="col-xs-5 col-sm-4 col-md-3">
+        <div class="input-group">
+            <div class="input-group-addon">(</div>
+            <input type="tel" class="form-control" id="areacode" name="areacode" placeholder="Area code">
+            <div class="input-group-addon">)</div>
+        </div>
+    </div>
+    <div class="col-xs-7 col-sm-6 col-md-7">
+        <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="Tel. number">
+    </div>
+</div>
+<div class="form-group">
+    <label for="emailid" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+        <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email">
+    </div>
+</div>
+```
+
+Note the use of the *input-group* and *input-group-addon* classes.
+
+#### Adding a Checkbox and Select
+* We now see the addition of a checkbox and a select element to the form. Note the styling of these elements using Bootstrap classes:
+```html
+ <div class="form-group">
+     <div class="checkbox col-sm-5 col-sm-offset-2">
+         <label class="checkbox-inline">
+             <input type="checkbox" name="approve" value="">                                <strong>May we contact you?</strong>
+         </label>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1">
+        <select class="form-control">
+            <option>Tel.</option>
+            <option>Email</option>
+        </select>
+    </div>
+</div>
+```
+#### Adding a textarea
+
+* Next we add a textarea for the users to submit their feedback comments as follows:
+
+```html
+ <div class="form-group">
+     <label for="feedback" class="col-sm-2 control-label">Your Feedback</label>
+    <div class="col-sm-10">
+        <textarea class="form-control" id="feedback" name="feedback" rows="12"></textarea>
+    </div>
+</div>
+```
+### Adding the Submit Button
+* Finally, we add the submit button to the form as follows:
+```
+div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Send Feedback</button>
+    </div>
+</div>
+```
+Note the declaration of the type for the button to submit.
+
+![Contact Us Page](img/ContactUs.png?raw=true "Contact Us Page")
+
+#### Updated: 2016-11-04
