@@ -114,7 +114,7 @@ Now you can see how the web page has been turned into a mobile-first responsive 
 
 ####**List styles**
 
-* You can use several list styles to display lists in different formats. We will use the unordered list style *list-unstyled* to display the links at the bottom of the page without the bullets. To do this, go to the links in the footer and update the ul as follows
+You can use several list styles to display lists in different formats. We will use the unordered list style *list-unstyled* to display the links at the bottom of the page without the bullets. To do this, go to the links in the footer and update the ul as follows
 
 ```html
  <ul class="list-unstyled"> ... </ul>
