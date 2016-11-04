@@ -70,31 +70,35 @@ Bootstrap is designed to be mobile first, meaning that the classes are designed 
 The *viewport* meta tag ensures that the screen width is set to the device width and the content is rendered with this width in mind. This brings us to the second issue, designing the websites to be responsive to the size of the viewport. This is where the Bootstrap grid system comes to our aid. Bootstrap makes available four sizes, xs for extra small, sm for small, md for medium and lg for large screen sizes. We have already seen the basics of responsive design. In this exercise, we will employ the Bootstrap grid classes to design the websites. We have already divided the content into rows. Each row in Bootstrap grid system is divided into 12 columns. We would like our website to have the content stacked on extra small devices, but become horizontal within each row for smaller devices and beyond. Towards this goal, we will make use of the classes .col-xs-*, .col-sm-*, col-md-*, and .col-lg-* for defining the layouts for the various device sizes. We can specify how many columns each piece of content will occupy within a row, all adding up to 12 or a multiple thereof.
 
 ####**Applying column classes within each row**
+
 * In the header row, we will display the restaurant name and the description to occupy 8 columns, while we will leave four columns for displaying the restaurant logo in the future. Let us go into the jumbotron and define the classes for the inner divs as follows:
+
 ```html
 <div class="col-xs-12 col-sm-8"> ... </div>
 
 <div class="col-xs-12 col-sm-4"> ... </div>
 ```
+
 * For the remaining three div rows that contain content, let us define the classes for the inner divs as follows:
+
 ```html
 <div class="col-xs-12 col-sm-3"> ... </div>
-
 <div class="col-xs-12 col-sm-9"> ... </div>
 ```
+
 * For the footer, let us define the classes for the inner divs as follows:
+
 ```html
 <div class="col-xs-6 col-sm-3"> ... </div>
-
 <div class="col-xs-6 col-sm-5"> ... </div>
-
 <div class="col-xs-12 col-sm-4"> ... </div>
-
 <div class="col-xs-12"> ... </div>
 ```
+
 Now you can see how the web page has been turned into a mobile-first responsive design layout.
 
 ####**Using Push, Pull and Offset with column layout classes**
+
 * In the content rows, we would like to have the title and description to alternate so that it gives an interesting look to the web page. For extra small screens, the default stacked layout works best. This can be accomplished by using the .col-sm-push-* and .col-sm-pull-* for the first and the third rows as follows:
 
 ```html
