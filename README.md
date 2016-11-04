@@ -40,16 +40,20 @@ By the end of the following steps, we are going to have the following Home Page:
 
 ####**Using a Container class**
 
-* We use the container class to keep content within a fixed width on the screen, determined by the size of the screen. The alternative is to use the container-fluid class to make the content automatically to span the full width of the screen.  Add the container class to the top most div in the file as follows.
+We use the container class to keep content within a fixed width on the screen, determined by the size of the screen. The alternative is to use the container-fluid class to make the content automatically to span the full width of the screen.  Add the container class to the top most div in the file as follows.
+
 ```html
 <div class="container"> ...</div>
 ```
 
 ####**Dividing the content into rows**
-* Let us now add the class row to the first-level inner div elements inside the container. This organizes the page into rows of content. I
+
+* Let us now add the class row to the first-level inner div elements inside the container. This organizes the page into rows of content. 
+
 ```html
 <div class="row"> ...
 ```
+
 ####**Creating a Jumbotron**
 
 * Let us add the class jumbotron to the header class as shown below. This turns the header element into a Bootstrap component named Jumbotron. A jumbotron is used to showcase key content on a website. In this case we are using it to highlight the name of the restaurant.
