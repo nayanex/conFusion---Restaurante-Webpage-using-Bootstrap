@@ -96,13 +96,14 @@ Now you can see how the web page has been turned into a mobile-first responsive 
 
 ####**Using Push, Pull and Offset with column layout classes**
 * In the content rows, we would like to have the title and description to alternate so that it gives an interesting look to the web page. For extra small screens, the default stacked layout works best. This can be accomplished by using the .col-sm-push-* and .col-sm-pull-* for the first and the third rows as follows:
+
 ```html
 <div class="col-xs-12 col-sm-3 col-sm-push-9"> ... </div>
-
 <div class="col-xs-12 col-sm-9 col-sm-pull-3"> ... </div>
-
 ```
+
 * For the div containing the <ul> with the site links, update the class as follows:
+
 ```html
 <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
 ```
@@ -470,4 +471,4 @@ Note the declaration of the type for the button to submit.
 
 ![Contact Us Page](img/ContactUs.png?raw=true "Contact Us Page")
 
-#### Updated: 2016-11-04
+#### Updated: 2016-11-01
