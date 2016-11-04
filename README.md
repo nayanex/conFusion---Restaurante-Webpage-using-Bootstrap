@@ -463,8 +463,10 @@ Note the use of the *input-group* and *input-group-addon* classes.
 </div>
 ```
 ### Adding the Submit Button
+
 * Finally, we add the submit button to the form as follows:
-```
+
+```html
 div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-primary">Send Feedback</button>
