@@ -106,7 +106,7 @@ Now you can see how the web page has been turned into a mobile-first responsive 
 <div class="col-xs-12 col-sm-9 col-sm-pull-3"> ... </div>
 ```
 
-* For the div containing the <ul> with the site links, update the class as follows:
+* For the div containing the `<ul>` with the site links, update the class as follows:
 
 ```html
 <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
